@@ -9,9 +9,12 @@ app.use(express.urlencoded({limit: '50mb', extended: true}));
 
 app.use("", routes);
 
+
+const PORT = process.env.PORT || 3000;
+
 let server;
 if(require.main === module) {
-    server = app.listen(9000, () => {
+    server = app.listen(PORT, () => {
         console.log(Date().toString()," Server is running on port 9000");
     });
 }
