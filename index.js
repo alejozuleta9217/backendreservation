@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 let server;
 if(require.main === module) {
     server = app.listen(PORT, () => {
-        console.log(Date().toString()," Server is running on port 9000");
+        console.log(Date().toString()," Server is running on port", PORT);
     });
 }
 
