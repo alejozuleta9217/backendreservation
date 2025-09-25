@@ -8,7 +8,7 @@ class UserServiceRegister {
         return new Promise((resolve, reject) => {
             pool.getConnection().query(
                 // 'INSERT INTO public.reservation_cun (id, nombre, telefono, correo, producto, cantidad, fechainicio, fechafin, total) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-                'INSERT INTO public.reservation_cun (id, nombre, telefono, correo, producto, cantidad, total, identificaro_empresa) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+                'INSERT INTO public.reservation_cun (id, nombre, telefono, correo, producto, cantidad, total, identificaro_empresa, direccion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
                 [
                     
                     reservation.identificador_empresa,                    
@@ -18,7 +18,8 @@ class UserServiceRegister {
                     reservation.habitacion, 
                     reservation.cantidad, 
                     reservation.total,  
-                    reservation.id,                
+                    reservation.id,         
+                    reservation.direccion       
                 ],
                 (error, results) => {
                     if (error) {
